@@ -1,0 +1,10 @@
+
+Zamazenta @ Expert Belt  
+Ability: Dauntless Shield  
+Tera Type: Steel  
+EVs: 172 HP / 252 Atk / 84 Spe  
+Adamant Nature  
+- Close Combat  
+- Play Rough  
+- Wild Charge  
+- Stone Edge
