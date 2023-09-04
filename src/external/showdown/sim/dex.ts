@@ -157,12 +157,12 @@ export class ModdedDex {
 	}
 
 	get dexes(): {[mod: string]: ModdedDex} {
-		// this.includeMods();
+		this.includeMods();
 		return dexes;
 	}
 
 	mod(mod: string | undefined): ModdedDex {
-		// if (!dexes['base'].modsLoaded) dexes['base'].includeMods();
+		if (!dexes['base'].modsLoaded) dexes['base'].includeMods();
 		return dexes[mod || 'base'];
 	}
 
@@ -172,8 +172,9 @@ export class ModdedDex {
 	}
 
 	forFormat(format: Format | string): ModdedDex {
-		// if (!this.modsLoaded) this.includeMods();
+		if (!this.modsLoaded) this.includeMods();
 		const mod = this.formats.get(format).mod;
+		
 		return dexes[mod || BASE_MOD].includeData();
 	}
 
@@ -481,7 +482,7 @@ export class ModdedDex {
 
 	loadData(): DexTableData {
 		if (this.dataCache) return this.dataCache;
-		// dexes['base'].includeMods();
+		dexes['base'].includeMods();
 		const dataCache: {[k in keyof DexTableData]?: any} = {};
 
 		const basePath = this.dataDir + '/';
