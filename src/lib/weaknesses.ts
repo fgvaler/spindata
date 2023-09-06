@@ -6,7 +6,7 @@ import { LegalPokemon, getUsage, getMoves, pokemonID } from './pokedex';
 import { max_damage, gen, min_damage } from './utils';
 
 const NUMBER_OF_THREATS_TO_RETRIEVE = 5;
-const RELEVANCE_USAGE_THRESHOLD = 0.0001;
+const RELEVANCE_USAGE_THRESHOLD = 0.001;
 
 export const get_weaknesses = (team: Pokemon[]) => {
 
@@ -14,6 +14,8 @@ export const get_weaknesses = (team: Pokemon[]) => {
     const sortedOU = sortBy(LegalPokemon, [getUsage]);
     const relevantOU = sortedOU.filter(x => getUsage(x) > RELEVANCE_USAGE_THRESHOLD);
     // -----
+
+    console.log(relevantOU)
     
     // get problematic pokemon
     const minDamageToTeamPerOUMon = relevantOU.map(x=>({
@@ -96,7 +98,7 @@ const maxDamageFromTeam = (defenderID: pokemonID, team: Pokemon[]) => {
     ]
 
     let max_defending_score = 0;
-    let best_defender_so_far = null;
+    let best_defender_so_far;
     for(const ability of abilities){
         for(const item of items){
             for(const nature of natures){
