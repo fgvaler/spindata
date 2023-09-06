@@ -6,7 +6,7 @@ import { LegalPokemon, getUsage, getMoves, pokemonID } from './pokedex';
 import { max_damage, gen, min_damage } from './utils';
 
 const NUMBER_OF_THREATS_TO_RETRIEVE = 5;
-const RELEVANCE_USAGE_THRESHOLD = 0.005;
+const RELEVANCE_USAGE_THRESHOLD = 0.01;
 
 export const get_weaknesses = (team: Pokemon[]) => {
 
